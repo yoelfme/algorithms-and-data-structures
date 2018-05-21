@@ -1,0 +1,19 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "Problems made in the 'The Coding Interview Course' in Udemy from Stephen Grider",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yoelfme/algorithms-and-data-structures.git"
+  },
+  "author": "Yoel Monzon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoelfme/algorithms-and-data-structures/issues"
+  },
+  "homepage": "https://github.com/yoelfme/algorithms-and-data-structures#readme"
+}
