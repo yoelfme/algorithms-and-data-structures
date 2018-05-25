@@ -1,4 +1,4 @@
-module.exports = (array, size) => {
+const chunk1 = (array, size) => {
   const elements = Math.floor(array.length / size)
   const finalArray = []
 
@@ -11,4 +11,20 @@ module.exports = (array, size) => {
   }
 
   return finalArray
+}
+
+module.exports = (array, size) => {
+  const chunked = []
+
+  for (let element of array) {
+    const last = chunked[chunked.length - 1]
+
+    if (!last || last.length === size) {
+      chunked.push([element])
+    } else {
+      last.push(element)
+    }
+  }
+
+  return chunked
 }
