@@ -13,7 +13,7 @@ const chunk1 = (array, size) => {
   return finalArray
 }
 
-module.exports = (array, size) => {
+const chunk2 = (array, size) => {
   const chunked = []
 
   for (let element of array) {
@@ -24,6 +24,19 @@ module.exports = (array, size) => {
     } else {
       last.push(element)
     }
+  }
+
+  return chunked
+}
+
+module.exports = (array, size) => {
+  const chunked = []
+  let index = 0
+
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size))
+
+    index += size
   }
 
   return chunked
