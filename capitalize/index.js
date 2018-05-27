@@ -4,7 +4,7 @@ const capitalize1 = (string) => {
     .join(' ')
 }
 
-module.exports = (string) => {
+const capitalize2 = (string) => {
   const words = []
 
   for (let word of string.split(' ')) {
@@ -12,4 +12,18 @@ module.exports = (string) => {
   }
 
   return words.join(' ')
+}
+
+module.exports = (string) => {
+  let result = string[0].toUpperCase()
+
+  for (let i = 1; i < string.length; i++) {
+    if (string[i - 1] === ' ') {
+      result+= string[i].toUpperCase()
+    } else {
+      result+= string[i]
+    }
+  }
+
+  return result
 }
