@@ -5,7 +5,7 @@ const steps1 = (steps) => {
   }
 }
 
-module.exports = (steps) => {
+const steps2 = (steps) => {
   for (let row = 0; row < steps; row++) {
     let stair = ''
 
@@ -15,4 +15,18 @@ module.exports = (steps) => {
 
     console.log(stair)
   }
+}
+
+module.exports = function steps(n, row = 0, stair = '') {
+  if (n === row) {
+    return
+  }
+
+  if (n === stair.length) {
+    console.log(stair)
+    return steps(n, row + 1)
+  }
+
+  const add = (stair.length <= row) ? '#' : ' '
+  return steps(n, row, stair + add)
 }
