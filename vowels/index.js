@@ -1,5 +1,5 @@
 const vowels1 = (str) => {
-  const vowels = str.toLowerCase().match(/[aeiou]/g)
+  const vowels = str.match(/[aeiou]/gi)
 
   return vowels && vowels.length || 0
 }
