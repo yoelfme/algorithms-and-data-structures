@@ -39,7 +39,5 @@ module.exports = (n) => {
     startColumn++
   }
 
-  console.log(matrix)
-
   return matrix
  }
