@@ -1,10 +1,4 @@
-const fibonacci = (n) => {
-  if (n < 2) return n
-
-  return (n - 1) + (n - 2)
-}
-
-module.exports = (n) => {
+const fib1 = (n) => {
   const serie = [0, 1]
 
   for (let i = 2; i <= n; i++) {
@@ -16,3 +10,17 @@ module.exports = (n) => {
 
   return serie[n]
 }
+
+const memo = [0, 1]
+const fib = (n) => {
+  let result = memo[n]
+
+  if (result === undefined) {
+    result = fib(n - 1) + fib(n - 2)
+    memo[n] = result
+  }
+
+  return result
+}
+
+module.exports = fib
