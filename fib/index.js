@@ -12,7 +12,7 @@ const fib1 = (n) => {
 }
 
 const memo = [0, 1]
-const fib = (n) => {
+const fib2 = (n) => {
   let result = memo[n]
 
   if (result === undefined) {
@@ -22,5 +22,30 @@ const fib = (n) => {
 
   return result
 }
+
+const memoize = (fn) => {
+  const cache = {}
+
+  return (...args) => {
+    if (cache[args]) {
+      return cache[args]
+    }
+
+    const result = fn.apply(this, args)
+    cache[args] = result
+
+    return result
+  }
+}
+
+const slowFib = (n) => {
+  if (n < 2) {
+    return n
+  }
+
+  return slowFib(n - 1) + slowFib(n - 2)
+}
+
+const fib = memoize(slowFib)
 
 module.exports = fib
