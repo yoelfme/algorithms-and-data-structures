@@ -84,13 +84,28 @@ class LinkedList {
     let counter = 0
     let node = this.head
 
-    while (node && counter < index) {
+    while (node) {
+      if (counter === index) {
+        return node
+      }
       counter+=1
 
       node = node.next
     }
 
-    return node
+    return null
+  }
+
+  removeAt(index) {
+    if (index === 0) {
+      this.removeFirst()
+    } else {
+      const previous = this.getAt(index - 1)
+
+      if (previous) {
+        previous.next = previous.next && previous.next.next
+      }
+    }
   }
 }
 
