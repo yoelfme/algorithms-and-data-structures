@@ -51,11 +51,7 @@ class LinkedList {
   }
 
   removeFirst() {
-    if (this.size() >= 2) {
-      this.head = this.head.next
-    } else {
-      this.head = null
-    }
+    this.head = this.head && this.head.next
   }
 }
 
