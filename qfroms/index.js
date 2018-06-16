@@ -17,6 +17,44 @@ const Stack = require('./stack');
 class Queue {
   constructor() {
     this.s1 = new Stack()
+    this.s2 = new Stack()
+  }
+
+  add(item) {
+    this.s1.push(item)
+  }
+
+  remove(m) {
+    while (this.s1.peek()) {
+      this.s2.push(this.s1.pop())
+    }
+
+    const value = this.s2.pop()
+
+    while (this.s2.peek()) {
+      this.s1.push(this.s2.pop())
+    }
+
+    return value
+  }
+
+  peek() {
+    while (this.s1.peek()) {
+      this.s2.push(this.s1.pop())
+    }
+
+    const value = this.s2.peek()
+
+    while (this.s2.peek()) {
+      this.s1.push(this.s2.pop())
+    }
+
+    return value
+  }
+}
+class Queue1 {
+  constructor() {
+    this.s1 = new Stack()
     this.s2 = null
   }
 
@@ -38,7 +76,7 @@ class Queue {
     const value = this.s2.pop()
 
     this.s1 = this._reverseStack(this.s2)
-    this.s2 = null
+    this.s2 = new Stack()
 
     return value
   }
@@ -48,7 +86,7 @@ class Queue {
     const value = this.s2.peek()
 
     this.s1 = this._reverseStack(this.s2)
-    this.s2 = null
+    this.s2 = new Stack()
 
     return value
   }
