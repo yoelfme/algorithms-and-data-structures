@@ -49,6 +49,14 @@ class LinkedList {
   clear() {
     this.head = null
   }
+
+  removeFirst() {
+    if (this.size() >= 2) {
+      this.head = this.head.next
+    } else {
+      this.head = null
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
