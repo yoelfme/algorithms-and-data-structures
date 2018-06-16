@@ -149,7 +149,7 @@ describe('InsertLast', () => {
   });
 });
 
-describe.skip('GetAt', () => {
+describe('GetAt', () => {
   test('returns the node at given index', () => {
     const l = new List();
     expect(l.getAt(10)).toEqual(null);
@@ -163,6 +163,7 @@ describe.skip('GetAt', () => {
     expect(l.getAt(1).data).toEqual(2);
     expect(l.getAt(2).data).toEqual(3);
     expect(l.getAt(3).data).toEqual(4);
+    expect(l.getAt(12)).toEqual(null)
   });
 });
 
