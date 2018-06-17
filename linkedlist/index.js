@@ -115,14 +115,25 @@ class LinkedList {
       const previous = this.getAt(index - 1)
 
       if (previous) {
-        const node = new Node(data)
-        const next = previous.next
+        const node = new Node(data, previous.next)
 
         previous.next =  node
-        node.next = next
       } else {
         this.insertLast(data)
       }
+    }
+  }
+
+  forEach(callback) {
+    let counter = 0
+    let node = this.head
+
+
+    while(node) {
+      callback(node, counter)
+
+      counter++
+      node = node.next
     }
   }
 }
