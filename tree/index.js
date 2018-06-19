@@ -43,6 +43,18 @@ class Tree {
       callback(node)
     }
   }
+
+  traverseDF(callback) {
+    const processor = this.root ? [this.root] : []
+
+    while (processor.length) {
+      const node = processor.shift()
+
+      processor.unshift(...node.children)
+
+      callback(node)
+    }
+  }
 }
 
 module.exports = { Tree, Node };
