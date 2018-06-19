@@ -35,14 +35,12 @@ class Tree {
   traverseBF(callback) {
     const processor = this.root ? [this.root] : []
 
-    while (processor.length > 0) {
+    while (processor.length) {
       const node = processor.shift()
 
-      callback(node)
+      processor.push(...node.children)
 
-      if (node.children) {
-        processor.push(...node.children)
-      }
+      callback(node)
     }
   }
 }
