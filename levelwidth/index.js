@@ -15,18 +15,16 @@ function levelWidth(root) {
   const flag = 'stop'
   const processor = [root, flag]
   const levels = [0]
-  let width = 0
 
   while (processor.length > 1) {
     const node = processor.shift()
 
     if (node === flag) {
       processor.push(flag)
-      width = 0
-      levels.push(width)
+      levels.push(0)
     } else {
-      levels[levels.length - 1] = ++width
       processor.push(...node.children)
+      levels[levels.length - 1]++
     }
   }
 
