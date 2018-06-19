@@ -31,6 +31,20 @@ class Tree {
   constructor() {
     this.root = null
   }
+
+  traverseBF(callback) {
+    const processor = this.root ? [this.root] : []
+
+    while (processor.length > 0) {
+      const node = processor.shift()
+
+      callback(node)
+
+      if (node.children) {
+        processor.push(...node.children)
+      }
+    }
+  }
 }
 
 module.exports = { Tree, Node };
