@@ -18,26 +18,21 @@ class Node {
     this.right = null
   }
 
-  insert(data, root = null) {
-    if (!root) root = this
-
-    if (data <= root.data) {
-      root.left ? this.insert(data, root.left) : root.left = new Node(data)
+  insert(data) {
+    if (data <= this.data) {
+      this.left ? this.left.insert(data) : this.left = new Node(data)
     } else {
-      root.right ? this.insert(data, root.right) : root.right = new Node(data)
+      this.right ? this.right.insert(data) : this.right = new Node(data)
     }
   }
 
-  contains(data, root = null) {
-    if (!root) root = this
-
-
-    if (data === root.data) {
-      return root
-    } else if (data <= root.data) {
-        return (root.left ? this.contains(data, root.left) : null)
+  contains(data) {
+    if (data === this.data) {
+      return this
+    } else if (data <= this.data) {
+        return (this.left ? this.left.contains(data) : null)
     } else {
-        return (root.right ? this.contains(data, root.right) : null)
+        return (this.right ? this.right.contains(data) : null)
     }
   }
 }
