@@ -5,7 +5,7 @@
 // every node's right hand child is greater than
 // the parent
 
-function validate(node, min = -Infinity, max = Infinity) {
+function validate(node, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_INFINITY) {
   if (node) {
     const minimum = node.data > min
     const maximum = node.data < max
