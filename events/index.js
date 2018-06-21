@@ -10,9 +10,8 @@ class Events {
 
   // Register an event handler
   on(eventName, callback) {
-    const event = this.events[eventName]
-    if (event) {
-      event.push(callback)
+    if (this.events[eventName]) {
+      this.events[eventName].push(callback)
     } else {
       this.events[eventName] = [callback]
     }
@@ -21,13 +20,9 @@ class Events {
   // Trigger all callbacks associated
   // with a given eventName
   trigger(eventName) {
-    const event = this.events[eventName]
-
-    if (event) {
-      event.forEach(cb => {
-        cb()
-      })
-    }
+    this.events[eventName] && this.events[eventName].forEach(cb => {
+      cb()
+    })
   }
 
   // Remove all event handlers associated
